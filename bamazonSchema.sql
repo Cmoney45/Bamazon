@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS bamazaon;
+DROP DATABASE IF EXISTS bamazon;
 
 CREATE DATABASE bamazon;
 
@@ -25,5 +25,7 @@ INSERT INTO products (product_name, department_name, price, quantity_available)
            ("Prime Test Testosterone Booster for Men", "Medicine", 17.97, 10),
            ("Toilet Paper (6 Rolls)", "Toiletry", 15.99, 6);
            
-
 SELECT * FROM products;
+
+
+
