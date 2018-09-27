@@ -1,7 +1,7 @@
-const displayTable = require("./showProducts");
+const displayTable = require("../base/showProducts");
 const updateTableConnection = require("../base/mysqlConnection")
 const seperator = "------------------------------------------------------------------------";
-
+const customerPrompts = require(`./customerPrompts`);
 
 function updateTable(id, quantityPurchased) {
 
@@ -30,8 +30,8 @@ function updateTable(id, quantityPurchased) {
                         if (updateErr) throw updateErr;
                         console.log(seperator);
                         console.log(`\nThank you for your purchase of ${quantityPurchased} ${firstRes[0].product_name}!`)
-                        console.log(`Your total charged was $${(firstRes[0].price * quantityPurchased).toFixed(2)}`)
-                        displayTable();
+                        console.log(`The total charged to you was $${(firstRes[0].price * quantityPurchased).toFixed(2)}`)
+                        displayTable(customerPrompts);
 
                     })
             }

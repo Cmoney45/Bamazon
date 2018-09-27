@@ -1,10 +1,9 @@
 const { table } = require('table');
-const customerPrompts = require("./customerPrompts");
 
-const showProductsConnection = require("../base/mysqlConnection")
+const showProductsConnection = require("./mysqlConnection")
 
-function displayTable() {
-    const query = "SELECT * FROM products";
+function displayTable(runThis) {
+    const query = "SELECT id, product_name, department_name, price, quantity_available FROM products";
     let tableDisplay = [
         ["ID", "Product", "Department", "Price", "Quantity"]
     ];
@@ -27,7 +26,7 @@ function displayTable() {
         const tableView = table(tableDisplay);
 
         console.log(`\n${tableView}`);
-        customerPrompts();
+        runThis();
     });
 };
 

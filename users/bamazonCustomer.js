@@ -1,11 +1,11 @@
 const seperator = "------------------------------------------------------------------------";
-const displayTable = require("../functionality/customer/showProducts");
-
+const displayTable = require("../functionality/base/showProducts");
+const customerPrompts = require(`../functionality/customer/customerPrompts`)
 
 function customerInteraction() {
     console.log(seperator)
     console.log("\n  -------     Welcome Customer!    --------")
-    displayTable();
+    displayTable(customerPrompts);
 
 };
 

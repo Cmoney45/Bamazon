@@ -29,7 +29,8 @@ function start() {
                     customer();
                     break;
                 case "Employee":
-                    console.log("Beep-boop, this process is not setup. Error 1991239234. Now Exiting program. Goodbye!")
+                    const employee = require(`./functionality/employee/other/employeeLogin`)
+                    employee();
                     break;
             }
 
