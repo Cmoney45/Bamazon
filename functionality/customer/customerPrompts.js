@@ -1,6 +1,5 @@
 const inquirer = require("inquirer");
 const customerPromptConnection = require("../base/mysqlConnection")
-const totalProducts = require(`../base/totalProductsCount`);
 
 function customerPrompts(totalProducts) {
     inquirer
