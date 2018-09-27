@@ -26,6 +26,3 @@ INSERT INTO products (product_name, department_name, price, quantity_available)
            ("Toilet Paper (6 Rolls)", "Toiletry", 15.99, 6);
            
 SELECT * FROM products;
-
-
-

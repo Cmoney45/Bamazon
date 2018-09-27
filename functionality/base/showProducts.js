@@ -1,5 +1,4 @@
 const { table } = require('table');
-
 const showProductsConnection = require("./mysqlConnection")
 
 function displayTable(runThis) {
@@ -10,7 +9,8 @@ function displayTable(runThis) {
 
     showProductsConnection.query(query, function (err, res) {
         if (err) throw err;
-
+        let totalCount = 0;
+        
         for (i in res) {
             let tableRow = [
                 res[i].id,
@@ -21,12 +21,13 @@ function displayTable(runThis) {
             ];
 
             tableDisplay.push(tableRow);
+            totalCount++;
         };
 
         const tableView = table(tableDisplay);
 
         console.log(`\n${tableView}`);
-        runThis();
+        runThis(totalCount);
     });
 };
 

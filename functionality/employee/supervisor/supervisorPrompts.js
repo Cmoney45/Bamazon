@@ -16,9 +16,9 @@ function supervisorActionPrompt() {
             }
         )
 
-        .then(function (managerAction) {
+        .then(function (supervisorAction) {
 
-            switch (managerAction.action) {
+            switch (supervisorAction.action) {
                 case "View Products Sales by Department":
                     console.log("\nEverybody is doing great! No one needs to be fired!\n")
                     supervisorActionPrompt();

@@ -11,7 +11,7 @@ function updateTable(id, quantityPurchased) {
 
             if ((firstRes[0].quantity_available - quantityPurchased) < 0) {
                 console.log("\nSorry, there is not enough of that item to purchase. Please choose a lower quantity.")
-                displayTable();
+                displayTable(customerPrompts);
 
             } else {
                 const updateQuery = "UPDATE products SET ? WHERE ?"

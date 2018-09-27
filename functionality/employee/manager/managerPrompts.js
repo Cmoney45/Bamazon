@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const managerConnection = require("../../base/mysqlConnection")
+const viewProducts = require(`../../base/showProducts`)
 
 function employerActionPrompt() {
     inquirer
@@ -22,7 +23,6 @@ function employerActionPrompt() {
 
             switch (managerAction.action) {
                 case "View Products for Sale":
-                    const viewProducts = require(`../../base/showProducts`)
                     viewProducts(employerActionPrompt);
                     break;
                 case "View Low Inventory":
@@ -30,7 +30,8 @@ function employerActionPrompt() {
                     lowInventory(employerActionPrompt);
                     break;
                 case "Add to Inventory":
-
+                    const addToInventoryPrompts = require(`./addToInventoryPrompts`);
+                    viewProducts(addToInventoryPrompts);
                     break;
                 case "Add New Product":
 
