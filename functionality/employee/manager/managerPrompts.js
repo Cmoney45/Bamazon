@@ -34,7 +34,9 @@ function employerActionPrompt() {
                     viewProducts(addToInventoryPrompts);
                     break;
                 case "Add New Product":
-
+                    const distinctDepartment = require(`../../base/distinctDepartment`);
+                    const addNewProduct = require(`./newProductPrompts`);
+                    distinctDepartment(addNewProduct);
                     break;
                 case "Quit":
                     managerConnection.end();

@@ -16,8 +16,8 @@ function displayTable(runThis) {
                 res[i].id,
                 res[i].product_name,
                 res[i].department_name,
-                res[i].price,
-                res[i].quantity_available
+                parseFloat(res[i].price).toFixed(2),
+                parseInt(res[i].quantity_available)
             ];
 
             tableDisplay.push(tableRow);
