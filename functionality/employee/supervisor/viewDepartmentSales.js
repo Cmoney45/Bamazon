@@ -12,14 +12,21 @@ function viewDepartmentSales(runThis) {
 
     showProductsConnection.query(query, function (err, res) {
         if (err) throw err;
-        
+
         for (i in res) {
+            let salesValue = parseFloat(res[i].sales).toFixed(2);
+
+            // Check for value if no department sales in product list
+            if (isNaN(salesValue)) {
+                salesValue = parseFloat(0.00).toFixed(2);
+            };
+
             let tableRow = [
                 res[i].id,
                 res[i].department_name,
-                parseFloat(res[i].sales).toFixed(2),
+                salesValue,
                 parseFloat(res[i].over_head_costs).toFixed(2),
-                parseFloat(parseFloat(res[i].sales) - parseFloat(res[i].over_head_costs)).toFixed(2)
+                parseFloat(salesValue - parseFloat(res[i].over_head_costs)).toFixed(2)
             ];
 
             tableDisplay.push(tableRow);

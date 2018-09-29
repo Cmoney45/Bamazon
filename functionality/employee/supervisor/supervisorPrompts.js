@@ -25,8 +25,8 @@ function supervisorActionPrompt() {
                     viewDepartmentSales(supervisorActionPrompt)
                     break;
                 case "Create New Department":
-                    console.log("\nWe're fine, we dont need any more of these.\n")
-                    supervisorViewProducts(supervisorActionPrompt);
+                    const createDepartment = require(`./newDepartmentPrompts`);
+                    createDepartment();
                     break;
                 case "Quit":
                     supervisorConnection.end();
