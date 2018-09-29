@@ -1,5 +1,7 @@
 const inquirer = require("inquirer");
 const supervisorConnection = require("../../base/mysqlConnection")
+const supervisorViewProducts = require(`./supervisorShowProducts`);
+const viewDepartmentSales = require(`./viewDepartmentSales`);
 
 function supervisorActionPrompt() {
     inquirer
@@ -20,12 +22,11 @@ function supervisorActionPrompt() {
 
             switch (supervisorAction.action) {
                 case "View Products Sales by Department":
-                    console.log("\nEverybody is doing great! No one needs to be fired!\n")
-                    supervisorActionPrompt();
+                    viewDepartmentSales(supervisorActionPrompt)
                     break;
                 case "Create New Department":
                     console.log("\nWe're fine, we dont need any more of these.\n")
-                    supervisorActionPrompt();
+                    supervisorViewProducts(supervisorActionPrompt);
                     break;
                 case "Quit":
                     supervisorConnection.end();

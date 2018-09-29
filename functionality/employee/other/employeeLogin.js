@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const employeeConnection = require("../../base/mysqlConnection")
-
+const supervisorViewProducts = require(`../supervisor/supervisorShowProducts`);
 
 function whichEmployerPrompt() {
     inquirer
@@ -33,7 +33,7 @@ function whichEmployerPrompt() {
                 case "Supervisor":
                     if (employerLoginResponse.password === "password1") {
                         const supervisor = require(`../supervisor/supervisorPrompts`);
-                        supervisor();
+                        supervisorViewProducts(supervisor);
                     } else {
                         console.log("That password was incorrect. Good bye!")
                         employeeConnection.end();

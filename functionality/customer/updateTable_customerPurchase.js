@@ -20,7 +20,8 @@ function updateTable(id, quantityPurchased) {
                     updateQuery,
                     [
                         {
-                            quantity_available: firstRes[0].quantity_available - quantityPurchased
+                            quantity_available: firstRes[0].quantity_available - quantityPurchased,
+                            product_sales: firstRes[0].product_sales + (firstRes[0].price * quantityPurchased).toFixed(2)
                         },
                         {
                             id
@@ -33,9 +34,9 @@ function updateTable(id, quantityPurchased) {
                         console.log(`The total charged to you was $${(firstRes[0].price * quantityPurchased).toFixed(2)}`)
                         displayTable(customerPrompts);
 
-                    })
-            }
-        })
+                    });
+            };
+        });
 
 };
 
