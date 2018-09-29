@@ -21,7 +21,7 @@ function updateTable(id, quantityPurchased) {
                     [
                         {
                             quantity_available: firstRes[0].quantity_available - quantityPurchased,
-                            product_sales: firstRes[0].product_sales + (firstRes[0].price * quantityPurchased).toFixed(2)
+                            product_sales: (firstRes[0].product_sales + (firstRes[0].price * quantityPurchased)).toFixed(2)
                         },
                         {
                             id

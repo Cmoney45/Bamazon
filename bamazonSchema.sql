@@ -39,7 +39,4 @@ INSERT INTO departments (department_name, over_head_costs)
            ("Apparel", 5.00),
            ("Medicine", 1.00);
 
-SELECT * FROM products
-
-SELECT departments.id, departments.department_name, SUM(products.product_sales) as sales, departments.over_head_costs 
-	FROM products INNER JOIN departments ON (products.department_name = departments.department_name);
+SELECT * FROM products;
