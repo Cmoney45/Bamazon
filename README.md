@@ -25,7 +25,7 @@ To get the program running, you need to clone it to your machine. Open up GIT on
 ## Running the Program
 ![alt text](https://github.com/Cmoney45/Bamazon/blob/master/images/start.PNG)
 ![alt text](https://github.com/Cmoney45/Bamazon/blob/master/images/mainMenu.PNG)
-### Customer Interface
+## Customer Interface
 
   The customer interface allows the user to view the current inventory of store items: item IDs, descriptions, department in which the item is located and price.
 
@@ -35,7 +35,7 @@ To get the program running, you need to clone it to your machine. Open up GIT on
  
  ![alt text](https://github.com/Cmoney45/Bamazon/blob/master/images/customerPurchase.PNG)
  
-### Employee Menu
+## Employee Menu
 
 ![alt text](https://github.com/Cmoney45/Bamazon/blob/master/images/employeeMainMenu.PNG)
 
@@ -43,7 +43,7 @@ If the user is an employee, they are brought to the employee menu. They then sel
 
 ![alt text](https://github.com/Cmoney45/Bamazon/blob/master/images/managerPasswordPrompt.PNG)
 
-### Manager Interface
+## Manager Interface
 
 The manager interface presents a list of four options: 
 
@@ -69,7 +69,7 @@ Once all completed, it will looke like the below image:
 
 ![alt text](https://github.com/Cmoney45/Bamazon/blob/master/images/managerMenu-addProduct-completed.PNG)
 
-### Supervisor Interface
+## Supervisor Interface
 
 The supervisor interface initall shows the current products available. Their view has an additional column for the total sales of the product as well. The supvervisor also has a list of three options: 
 
