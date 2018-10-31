@@ -3,7 +3,7 @@ const { table } = require('table');
 const seperator = "------------------------------------------------------------------------";
 const managerPrompts = require(`./managerPrompts`);
 
-function lowInventory(runThis) {
+const lowInventory = runThis => {
     let tableDisplay = [
         ["ID", "Product", "Department", "Price", "Quantity"]
     ];
@@ -13,7 +13,7 @@ function lowInventory(runThis) {
          FROM products 
          WHERE quantity_available<=5`,
 
-        function (err, res) {
+        (err, res) => {
             if (err) throw err;
             for (i in res) {
                 let tableRow = [

@@ -1,13 +1,13 @@
 const { table } = require('table');
 const showProductsConnection = require("./mysqlConnection")
 
-function displayTable(runThis) {
+const displayTable = runThis => {
     const query = "SELECT id, product_name, department_name, price, quantity_available FROM products";
     let tableDisplay = [
         ["ID", "Product", "Department", "Price", "Quantity"]
     ];
 
-    showProductsConnection.query(query, function (err, res) {
+    showProductsConnection.query(query, (err, res) => {
         if (err) throw err;
         let totalCount = 0;
         

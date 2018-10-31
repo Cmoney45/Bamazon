@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 
-function managerNewProductPrompts(departmentList) {
+const managerNewProductPrompts = departmentList => {
     inquirer
         .prompt([
             {
@@ -18,7 +18,7 @@ function managerNewProductPrompts(departmentList) {
                 name: "cost",
                 type: "input",
                 message: "How much does it cost?",
-                validate: function (value) {
+                validate: value => {
                     if (!isNaN(value) && value > 0) {
                         return true;
                     }
@@ -29,7 +29,7 @@ function managerNewProductPrompts(departmentList) {
                 name: "quantity",
                 type: "input",
                 message: "How many do we have?",
-                validate: function (value) {
+                validate: value => {
                     if (!isNaN(value) && value > 0) {
                         return true;
                     }
@@ -37,7 +37,7 @@ function managerNewProductPrompts(departmentList) {
                 }
             }
         ])
-        .then(function (addProductRes) {
+        .then(addProductRes => {
 
             const newProduct = require("./updateTable_newProduct");
             newProduct(addProductRes.product, addProductRes.department, addProductRes.cost, addProductRes.quantity)

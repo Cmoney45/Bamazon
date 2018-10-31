@@ -1,13 +1,13 @@
 const inquirer = require("inquirer");
 
-function managerAddInventoryPrompts(totalProducts) {
+const managerAddInventoryPrompts = totalProducts => {
     inquirer
         .prompt([
             {
                 name: "product",
                 type: "input",
                 message: "What is the ID of the item you would like to add?",
-                validate: function (value1) {
+                validate: value1 => {
                     if (!isNaN(value1) && value1 <= totalProducts && value1 > 0) {
                         return true;
                     }
@@ -18,7 +18,7 @@ function managerAddInventoryPrompts(totalProducts) {
                 name: "quantityToAdd",
                 type: "input",
                 message: "How many would you like to add?",
-                validate: function (value) {
+                validate: value => {
                     if (!isNaN(value) && value > 0) {
                         return true;
                     }
@@ -26,7 +26,7 @@ function managerAddInventoryPrompts(totalProducts) {
                 }
             }
         ])
-        .then(function (addInventoryResponses) {
+        .then(addInventoryResponses => {
 
             const updateInventory = require("./addToInventory")
             updateInventory(addInventoryResponses.product, addInventoryResponses.quantityToAdd);

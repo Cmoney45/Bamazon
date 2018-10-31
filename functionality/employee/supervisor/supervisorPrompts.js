@@ -3,7 +3,7 @@ const supervisorConnection = require("../../base/mysqlConnection")
 const supervisorViewProducts = require(`./supervisorShowProducts`);
 const viewDepartmentSales = require(`./viewDepartmentSales`);
 
-function supervisorActionPrompt() {
+const supervisorActionPrompt = () => {
     inquirer
         .prompt(
             {
@@ -18,7 +18,7 @@ function supervisorActionPrompt() {
             }
         )
 
-        .then(function (supervisorAction) {
+        .then(supervisorAction => {
 
             switch (supervisorAction.action) {
                 case "View Products Sales by Department":

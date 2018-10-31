@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 
-function supervisorNewDepartment() {
+const supervisorNewDepartment = () => {
     inquirer
         .prompt([
             {
@@ -12,7 +12,7 @@ function supervisorNewDepartment() {
                 name: "cost",
                 type: "input",
                 message: "What is the overhead cost of the department?",
-                validate: function (value) {
+                validate: value => {
                     if (!isNaN(value) && value > 0) {
                         return true;
                     }
@@ -20,7 +20,7 @@ function supervisorNewDepartment() {
                 }
             }
         ])
-        .then(function (addDepartmentRes) {
+        .then(addDepartmentRes => {
 
             const newDepartment = require("./updateTable_newDepartment");
             newDepartment(addDepartmentRes.department, addDepartmentRes.cost)

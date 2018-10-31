@@ -8,7 +8,7 @@ function customerPrompts(totalProducts) {
                 name: "product",
                 type: "input",
                 message: "Which is the ID of the product you would like to purchase? [Quit with Q]",
-                validate: function (value1) {
+                validate: (value1) => {
                     if (value1 === "q" || value1 === "Q") {
                         customerPromptConnection.end();
                         customerPromptConnection.end();
@@ -24,7 +24,7 @@ function customerPrompts(totalProducts) {
                 name: "quantityPurchased",
                 type: "input",
                 message: "How much do you want to purchase?",
-                validate: function (value2) {
+                validate: (value2) => {
                     if (!isNaN(value2) && value2 > 0) {
                         return true;
                     }
@@ -32,7 +32,7 @@ function customerPrompts(totalProducts) {
                 }
             }
         ])
-        .then(function (loginResponse) {
+        .then(loginResponse => {
 
             const updateTable = require("./updateTable_customerPurchase")
             updateTable(loginResponse.product, loginResponse.quantityPurchased);

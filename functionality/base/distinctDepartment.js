@@ -1,10 +1,10 @@
 const distinctConnection = require("./mysqlConnection")
 
-function distinctDepartment(runThis) {
+const distinctDepartment = runThis => {
 
     const query = "SELECT DISTINCT department_name FROM departments";
 
-    distinctConnection.query(query, function (firstErr, firstRes) {
+    distinctConnection.query(query, (firstErr, firstRes) => {
         if (firstErr) throw firstErr;
         let departments = [];
 

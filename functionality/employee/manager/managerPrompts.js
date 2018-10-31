@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 const managerConnection = require("../../base/mysqlConnection")
 const viewProducts = require(`../../base/showProducts`)
 
-function employerActionPrompt() {
+const employerActionPrompt = () => {
     inquirer
         .prompt(
             {
@@ -19,7 +19,7 @@ function employerActionPrompt() {
             }
         )
 
-        .then(function (managerAction) {
+        .then(managerAction => {
 
             switch (managerAction.action) {
                 case "View Products for Sale":

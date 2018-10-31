@@ -2,12 +2,12 @@ const updateTableConnection = require("../../base/mysqlConnection")
 const seperator = "------------------------------------------------------------------------";
 const managerPrompts = require(`./managerPrompts`);
 
-function updateTable(
+const updateTable = (
     productName,
     departmentName,
     price,
     quantityAvailable
-    ) {
+    ) => {
 
     updateTableConnection.query(
         `INSERT INTO products (product_name, department_name, price, quantity_available)
@@ -16,7 +16,7 @@ function updateTable(
             ${parseFloat(price).toFixed(2)}, 
             ${parseInt(quantityAvailable)})`,
 
-            function (err, res) {
+            (err, res) => {
                 if (err) throw err;
 
                 console.log(seperator);

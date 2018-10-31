@@ -3,10 +3,10 @@ const updateTableConnection = require("../base/mysqlConnection")
 const seperator = "------------------------------------------------------------------------";
 const customerPrompts = require(`./customerPrompts`);
 
-function updateTable(id, quantityPurchased) {
+const updateTable = (id, quantityPurchased) => {
 
     updateTableConnection.query(
-        `SELECT * FROM products WHERE id=${id}`, function (firstErr, firstRes) {
+        `SELECT * FROM products WHERE id=${id}`, (firstErr, firstRes) => {
             if (firstErr) throw firstErr;
 
             if ((firstRes[0].quantity_available - quantityPurchased) < 0) {
@@ -27,7 +27,7 @@ function updateTable(id, quantityPurchased) {
                             id
                         }
                     ],
-                    function (updateErr, updateRes) {
+                     (updateErr, updateRes) => {
                         if (updateErr) throw updateErr;
                         console.log(seperator);
                         console.log(`\nThank you for your purchase of ${quantityPurchased} ${firstRes[0].product_name}!`)

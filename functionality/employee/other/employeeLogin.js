@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 const employeeConnection = require("../../base/mysqlConnection")
 const supervisorViewProducts = require(`../supervisor/supervisorShowProducts`);
 
-function whichEmployerPrompt() {
+const whichEmployerPrompt = () => {
     inquirer
         .prompt([
             {
@@ -18,7 +18,7 @@ function whichEmployerPrompt() {
             }
         ])
 
-        .then(function (employerLoginResponse) {
+        .then(employerLoginResponse => {
 
             switch (employerLoginResponse.employerLogin) {
                 case "Manager":

@@ -6,13 +6,13 @@ const seperator = "-------------------------------";
 const connection = require("./functionality/base/mysqlConnection")
 
 // connect to the mysql server and sql database
-connection.connect(function (err) {
+connection.connect(err => {
     if (err) throw err;
     // run the start function after the connection is made to prompt the user
     start();
 });
 
-function start() {
+const start = () => {
     console.log(seperator)
     console.log("\nWelcome to BAMazon! The second-cousin, twice removed of Amazon!\n\n")
     inquirer
@@ -22,7 +22,7 @@ function start() {
             message: "Which user type are you logging in as?",
             choices: ["Customer", "Employee"]
         })
-        .then(function (loginResponse) {
+        .then(loginResponse => {
             switch (loginResponse.userLogin) {
                 case "Customer":
                     const customer = require(`./users/bamazonCustomer`);

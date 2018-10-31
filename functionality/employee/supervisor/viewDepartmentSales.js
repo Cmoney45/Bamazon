@@ -1,7 +1,7 @@
 const { table } = require('table');
 const showProductsConnection = require("../../base/mysqlConnection")
 
-function viewDepartmentSales(runThis) {
+const viewDepartmentSales = runThis => {
     const query = `SELECT departments.id, departments.department_name, sum(products.product_sales) as sales, departments.over_head_costs 
 	FROM departments LEFT JOIN products ON (products.department_name = departments.department_name)
     GROUP BY department_name`;
@@ -10,7 +10,7 @@ function viewDepartmentSales(runThis) {
         ["ID", "Department", "Sales", "Overhead Costs", "Profit/(Loss)"]
     ];
 
-    showProductsConnection.query(query, function (err, res) {
+    showProductsConnection.query(query, (err, res) => {
         if (err) throw err;
 
         for (i in res) {
